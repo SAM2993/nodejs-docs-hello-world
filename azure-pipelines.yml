@@ -19,13 +19,11 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
-settings
-  - task: CopyFiles@2
+- task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
+    SourceFolder: '''$(Build.SourcesDirectory)'''
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    
+    TargetFolder: '''$(Build.ArtifactStagingDirectory)'''
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
